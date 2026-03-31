@@ -26,9 +26,9 @@ public class AuthService implements IAuthService {
 
     /**
      * Autentica un usuario comparando username y contraseña hasheada.
-     * @param username nombre de usuario ingresado en el Login
-     * @param password contraseña en texto plano (se hashea aquí antes de comparar)
-     * @return objeto Usuario si las credenciales son válidas, null si no
+     *username nombre de usuario ingresado en el Login
+     * password contraseña en texto plano (se hashea aquí antes de comparar)
+     * objeto Usuario si las credenciales son válidas, null si no
      */
     @Override
     public Usuario login(String username, String password) {

@@ -16,6 +16,9 @@ import javax.swing.border.EmptyBorder;
 import controller.RegisterController;
 import services.EmailAlreadyExistsException;
 import services.UserAlreadyExistsException;
+import java.awt.Panel;
+import javax.swing.ImageIcon;
+import java.awt.Cursor;
 
 /**
  * Vista de Registro de usuarios.
@@ -70,88 +73,161 @@ public class Register extends JFrame {
 
         setTitle("Registro de Usuario");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // no cierra toda la app
-        setBounds(100, 100, 400, 480);
+        setBounds(100, 100, 800, 500);
 
         contentPane = new JPanel();
         contentPane.setBackground(Color.LIGHT_GRAY);
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        contentPane.setLayout(null);
         setContentPane(contentPane);
-
-        // ── Título ───────────────────────────────────────────────
-        JLabel lblTitulo = new JLabel("Registro");
-        lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 26));
-        lblTitulo.setBounds(130, 11, 150, 40);
-        contentPane.add(lblTitulo);
-
-        // ── Nombre ───────────────────────────────────────────────
-        JLabel lblNombre = new JLabel("Nombre");
-        lblNombre.setBounds(80, 65, 120, 14);
-        contentPane.add(lblNombre);
-
-        txtNombre = new JTextField();
-        txtNombre.setBounds(80, 82, 220, 22);
-        contentPane.add(txtNombre);
-
-        // ── Apellido ─────────────────────────────────────────────
-        JLabel lblApellido = new JLabel("Apellido");
-        lblApellido.setBounds(80, 112, 120, 14);
-        contentPane.add(lblApellido);
-
-        txtApellido = new JTextField();
-        txtApellido.setBounds(80, 129, 220, 22);
-        contentPane.add(txtApellido);
-
-        // ── Nombre de usuario ────────────────────────────────────
-        JLabel lblUsername = new JLabel("Nombre de Usuario");
-        lblUsername.setBounds(80, 159, 150, 14);
-        contentPane.add(lblUsername);
-
-        txtUsername = new JTextField();
-        txtUsername.setBounds(80, 176, 220, 22);
-        contentPane.add(txtUsername);
-
-        // ── Teléfono ─────────────────────────────────────────────
-        JLabel lblTelefono = new JLabel("Número de Teléfono");
-        lblTelefono.setBounds(80, 206, 150, 14);
-        contentPane.add(lblTelefono);
-
-        txtTelefono = new JTextField();
-        txtTelefono.setBounds(80, 223, 220, 22);
-        contentPane.add(txtTelefono);
-
-        // ── Correo ───────────────────────────────────────────────
-        JLabel lblCorreo = new JLabel("Correo Electrónico");
-        lblCorreo.setBounds(80, 253, 150, 14);
-        contentPane.add(lblCorreo);
-
-        txtCorreo = new JTextField();
-        txtCorreo.setBounds(80, 270, 220, 22);
-        contentPane.add(txtCorreo);
-
-        // ── Contraseña (oculta) ──────────────────────────────────
-        JLabel lblContrasena = new JLabel("Contraseña");
-        lblContrasena.setBounds(80, 300, 100, 14);
-        contentPane.add(lblContrasena);
-
-        // JPasswordField oculta los caracteres mientras escribe
-        txtContrasena = new JPasswordField();
-        txtContrasena.setBounds(80, 317, 220, 22);
-        contentPane.add(txtContrasena);
-
-        // ── Confirmar contraseña (oculta) ────────────────────────
-        JLabel lblConfirmar = new JLabel("Confirmar Contraseña");
-        lblConfirmar.setBounds(80, 347, 150, 14);
-        contentPane.add(lblConfirmar);
-
-        txtConfirmar = new JPasswordField();
-        txtConfirmar.setBounds(80, 364, 220, 22);
-        contentPane.add(txtConfirmar);
-
-        // ── Botón Registrarse ────────────────────────────────────
-        JButton btnRegistrarse = new JButton("Registrarse");
-        btnRegistrarse.setBounds(130, 400, 130, 28);
-        contentPane.add(btnRegistrarse);
+        contentPane.setLayout(null);
+        
+        JLabel lblNewLabel = new JLabel("");
+        lblNewLabel.setBounds(67, 11, 44, 39);
+        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Stanley\\Desktop\\Tarea4Kelyn\\Tarea4Kelyn\\bin\\images\\Group-1000011122 (1) (1).png"));
+        contentPane.add(lblNewLabel);
+        
+        JLabel lblNewLabel_1_1 = new JLabel("");
+        lblNewLabel_1_1.setBounds(634, 0, 150, 150);
+        lblNewLabel_1_1.setIcon(new ImageIcon("C:\\Users\\Stanley\\Desktop\\Tarea4Kelyn\\Tarea4Kelyn\\bin\\images\\Owner_Blue_220x220 (1).png"));
+        contentPane.add(lblNewLabel_1_1);
+        
+        JLabel lblNewLabel_1 = new JLabel("");
+        lblNewLabel_1.setBounds(634, -25, 150, 512);
+        lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Stanley\\Desktop\\Tarea4Kelyn\\Tarea4Kelyn\\bin\\images\\Captura de pantalla 2026-03-30 222555.png"));
+        contentPane.add(lblNewLabel_1);
+        
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.WHITE);
+        panel.setBounds(0, 0, 784, 461);
+        contentPane.add(panel);
+        panel.setLayout(null);
+                
+                Panel panel_1_1_3_1_1 = new Panel();
+                panel_1_1_3_1_1.setBackground(Color.BLACK);
+                panel_1_1_3_1_1.setBounds(363, 292, 227, 2);
+                panel.add(panel_1_1_3_1_1);
+                
+                Panel panel_1_1_3_1 = new Panel();
+                panel_1_1_3_1.setBackground(Color.BLACK);
+                panel_1_1_3_1.setBounds(363, 220, 227, 2);
+                panel.add(panel_1_1_3_1);
+                
+                Panel panel_1_1_2_1 = new Panel();
+                panel_1_1_2_1.setBackground(Color.BLACK);
+                panel_1_1_2_1.setBounds(80, 369, 227, 2);
+                panel.add(panel_1_1_2_1);
+                
+                Panel panel_1_1_2 = new Panel();
+                panel_1_1_2.setBackground(Color.BLACK);
+                panel_1_1_2.setBounds(80, 292, 227, 2);
+                panel.add(panel_1_1_2);
+                
+                Panel panel_1_1_1 = new Panel();
+                panel_1_1_1.setBackground(Color.BLACK);
+                panel_1_1_1.setBounds(80, 220, 227, 2);
+                panel.add(panel_1_1_1);
+        
+                // ── Título ───────────────────────────────────────────────
+                JLabel lblTitulo = new JLabel("Crear usuario");
+                lblTitulo.setBounds(118, 21, 192, 34);
+                panel.add(lblTitulo);
+                lblTitulo.setFont(new Font("Rockwell", Font.BOLD, 28));
+                
+                Panel panel_1_1 = new Panel();
+                panel_1_1.setBounds(80, 144, 227, 2);
+                panel.add(panel_1_1);
+                panel_1_1.setBackground(Color.BLACK);
+                
+                        // ── Correo ───────────────────────────────────────────────
+                        JLabel lblCorreo = new JLabel("Correo Electrónico");
+                        lblCorreo.setFont(new Font("Rockwell", Font.PLAIN, 17));
+                        lblCorreo.setBounds(363, 87, 183, 25);
+                        panel.add(lblCorreo);
+                                
+                                        // ── Contraseña (oculta) ──────────────────────────────────
+                                        JLabel lblContrasena = new JLabel("Contraseña");
+                                        lblContrasena.setFont(new Font("Rockwell", Font.PLAIN, 17));
+                                        lblContrasena.setBounds(363, 163, 117, 25);
+                                        panel.add(lblContrasena);
+                                        
+                                                // JPasswordField oculta los caracteres mientras escribe
+                                                txtContrasena = new JPasswordField();
+                                                txtContrasena.setBorder(null);
+                                                txtContrasena.setBounds(363, 188, 230, 34);
+                                                panel.add(txtContrasena);
+                                                
+                                                        // ── Confirmar contraseña (oculta) ────────────────────────
+                                                        JLabel lblConfirmar = new JLabel("Confirmar Contraseña");
+                                                        lblConfirmar.setFont(new Font("Rockwell", Font.PLAIN, 17));
+                                                        lblConfirmar.setBounds(363, 233, 183, 25);
+                                                        panel.add(lblConfirmar);
+                                                        
+                                                                txtConfirmar = new JPasswordField();
+                                                                txtConfirmar.setBorder(null);
+                                                                txtConfirmar.setBounds(363, 260, 227, 34);
+                                                                panel.add(txtConfirmar);
+                                                                
+                                                                        // ── Botón Registrarse ────────────────────────────────────
+                                                                        JButton btnRegistrarse = new JButton("Registrarse");
+                                                                        btnRegistrarse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                                                                        btnRegistrarse.setForeground(Color.WHITE);
+                                                                        btnRegistrarse.setBackground(new Color(0, 134, 190));
+                                                                        btnRegistrarse.setFont(new Font("Rockwell", Font.PLAIN, 16));
+                                                                        btnRegistrarse.setBounds(238, 391, 183, 43);
+                                                                        panel.add(btnRegistrarse);
+                                                                        
+                                                                                txtTelefono = new JTextField();
+                                                                                txtTelefono.setBorder(null);
+                                                                                txtTelefono.setBounds(80, 337, 230, 34);
+                                                                                panel.add(txtTelefono);
+                                                                                
+                                                                                        // ── Teléfono ─────────────────────────────────────────────
+                                                                                        JLabel lblTelefono = new JLabel("Número de Teléfono");
+                                                                                        lblTelefono.setFont(new Font("Rockwell", Font.PLAIN, 17));
+                                                                                        lblTelefono.setBounds(80, 312, 162, 21);
+                                                                                        panel.add(lblTelefono);
+                                                                                                
+                                                                                                        // ── Nombre de usuario ────────────────────────────────────
+                                                                                                        JLabel lblUsername = new JLabel("Nombre de Usuario");
+                                                                                                        lblUsername.setFont(new Font("Rockwell", Font.PLAIN, 17));
+                                                                                                        lblUsername.setBounds(80, 233, 153, 21);
+                                                                                                        panel.add(lblUsername);
+                                                                                                                        
+                                                                                                                                txtApellido = new JTextField();
+                                                                                                                                txtApellido.setBorder(null);
+                                                                                                                                txtApellido.setBounds(80, 188, 230, 34);
+                                                                                                                                panel.add(txtApellido);
+                                                                                                                
+                                                                                                                        txtUsername = new JTextField();
+                                                                                                                        txtUsername.setBorder(null);
+                                                                                                                        txtUsername.setBounds(80, 260, 230, 34);
+                                                                                                                        panel.add(txtUsername);
+                                                                                                                
+                                                                                                                        // ── Apellido ─────────────────────────────────────────────
+                                                                                                                        JLabel lblApellido = new JLabel("Apellido");
+                                                                                                                        lblApellido.setBounds(80, 157, 142, 22);
+                                                                                                                        panel.add(lblApellido);
+                                                                                                                        lblApellido.setFont(new Font("Rockwell", Font.PLAIN, 17));
+                                                                                                                        
+                                                                                                                                txtNombre = new JTextField();
+                                                                                                                                txtNombre.setBorder(null);
+                                                                                                                                txtNombre.setBounds(80, 112, 230, 34);
+                                                                                                                                panel.add(txtNombre);
+                                                                                                                                
+                                                                                                                                JLabel lblUsuario = new JLabel("Nombre de Usuario");
+                                                                                                                                lblUsuario.setBounds(80, 83, 204, 32);
+                                                                                                                                panel.add(lblUsuario);
+                                                                                                                                lblUsuario.setFont(new Font("Rockwell", Font.PLAIN, 17));
+                                                                                                                                
+                                                                                                                                Panel panel_1_1_3 = new Panel();
+                                                                                                                                panel_1_1_3.setBackground(Color.BLACK);
+                                                                                                                                panel_1_1_3.setBounds(363, 144, 227, 2);
+                                                                                                                                panel.add(panel_1_1_3);
+                                                                                                                                
+                                                                                                                                        txtCorreo = new JTextField();
+                                                                                                                                        txtCorreo.setBorder(null);
+                                                                                                                                        txtCorreo.setBounds(363, 112, 230, 34);
+                                                                                                                                        panel.add(txtCorreo);
 
         // ── Acción del botón ─────────────────────────────────────
         btnRegistrarse.addActionListener(e -> {

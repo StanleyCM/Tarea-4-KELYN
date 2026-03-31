@@ -31,7 +31,7 @@ public class UsuarioService implements IUsuarioService {
     /**
      * Autentica un usuario.
      * Hashea la contraseña antes de pasarla al DAO.
-     * @return Usuario si las credenciales son válidas, null si no
+     * return Usuario si las credenciales son válidas, null si no
      */
     @Override
     public Usuario login(String username, String password) {
@@ -49,9 +49,9 @@ public class UsuarioService implements IUsuarioService {
      * mensajes de error precisos (requisito de la tarea).
      * Lanza excepciones específicas para username/correo duplicados.
      *
-     * @throws IllegalArgumentException      si algún campo está vacío
-     * @throws UserAlreadyExistsException    si el username ya existe
-     * @throws EmailAlreadyExistsException   si el correo ya existe
+     * IllegalArgumentException      si algún campo está vacío
+     * UserAlreadyExistsException    si el username ya existe
+     * EmailAlreadyExistsException   si el correo ya existe
      */
     @Override
     public boolean registrarUsuario(String username, String nombre, String apellido,
@@ -103,8 +103,8 @@ public class UsuarioService implements IUsuarioService {
 
     /**
      * Actualiza los datos de un usuario existente.
-     * @param usuario debe tener un id válido para identificar el registro
-     * @return true si la actualización fue exitosa
+     * usuario debe tener un id válido para identificar el registro
+     * true si la actualización fue exitosa
      */
     @Override
     public boolean actualizarUsuario(Usuario usuario) {

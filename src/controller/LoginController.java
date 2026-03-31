@@ -13,8 +13,7 @@ public class LoginController {
     }
 
     /**
-     * Attempts to login and returns the authenticated Usuario or null if credentials invalid.
-     * Throws IllegalArgumentException if input is missing (so the view can show the required message).
+     * Metodos para llenar el login, y alerta cuando alguno de los datos no es ingresado
      */
     public Usuario login(String username, String password) {
         if (username == null || username.isBlank() || password == null || password.isBlank()) {

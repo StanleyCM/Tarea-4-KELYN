@@ -131,7 +131,7 @@ public class UsuarioDao implements IUsuarioDao {
     }
 
     // Mapea una fila de Clientes a un objeto Usuario
-    // Id_Cliente → id, Usuario → username, Contrasena → passwordHash
+    // Id_Cliente -> id, Usuario -> username, Contrasena -> passwordHash
     private Usuario mapear(ResultSet rs) throws SQLException {
         return Usuario.builder()
                 .id          (rs.getInt   ("Id_Cliente"))

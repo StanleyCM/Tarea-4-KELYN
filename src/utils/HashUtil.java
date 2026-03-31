@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.nio.charset.StandardCharsets;  // ← este suele faltar o estar mal
 
 public class HashUtil {
+	//Esta clase encripta la contraseña en hash en la base de dato
     public static String sha256(String input) {
         if (input == null) return null;
         try {

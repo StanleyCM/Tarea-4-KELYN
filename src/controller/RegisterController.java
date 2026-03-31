@@ -11,9 +11,7 @@ public class RegisterController {
     }
 
     /**
-     * Registers a user after validating all fields and password confirmation.
-     * Returns true if registration succeeded, false if username/email already exist.
-     * Throws IllegalArgumentException with a message for missing fields or password mismatch.
+     * metodos para el registro, y en cada caso su alerta de que los datos no fueron ingresados
      */
     public boolean register(String username, String nombre, String apellido, String telefono, String correo, String password, String confirmPassword) {
         if (username == null || username.isBlank()) throw new IllegalArgumentException("El campo 'nombre de usuario' es obligatorio");

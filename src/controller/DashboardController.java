@@ -26,8 +26,7 @@ public class DashboardController {
         return usuarioService.eliminarUsuario(id);
     }
 
-    // placeholder logout method; the view can call this to return to login
+
     public void logout() {
-        // no session state here; views should close/open windows as needed
     }
 }

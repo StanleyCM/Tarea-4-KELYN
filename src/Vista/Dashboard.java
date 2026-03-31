@@ -18,6 +18,10 @@ import javax.swing.table.DefaultTableModel;
 
 import controller.DashboardController;
 import model.Usuario;
+import javax.swing.border.LineBorder;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
+import javax.swing.border.BevelBorder;
 
 /**
  * Vista principal del sistema — muestra todos los usuarios registrados.
@@ -55,19 +59,13 @@ public class Dashboard extends JFrame {
     public Dashboard() {
         setTitle("Panel Principal - Usuarios Registrados");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 660, 360);
+        setBounds(100, 100, 800, 500);
 
         contentPane = new JPanel();
         contentPane.setBackground(Color.LIGHT_GRAY);
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        contentPane.setLayout(null);
         setContentPane(contentPane);
-
-        // ── Título ───────────────────────────────────────────────
-        JLabel lblTitulo = new JLabel("Usuarios Registrados");
-        lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 26));
-        lblTitulo.setBounds(160, 10, 400, 35);
-        contentPane.add(lblTitulo);
+        contentPane.setLayout(null);
 
         // ── Tabla ────────────────────────────────────────────────
         // Columna "ID" va al final y se oculta — se usa solo para CRUD
@@ -85,25 +83,154 @@ public class Dashboard extends JFrame {
         });
 
         JScrollPane scrollPane = new JScrollPane(tablaUsuarios);
-        scrollPane.setBounds(29, 56, 580, 185);
+        scrollPane.setFont(new Font("Rockwell", Font.PLAIN, 16));
+        scrollPane.setBorder(null);
+        scrollPane.setBounds(63, 69, 642, 265);
         contentPane.add(scrollPane);
-
-        // ── Botones ──────────────────────────────────────────────
-        JButton btnCrear = new JButton("Nuevo");
-        btnCrear.setBounds(61, 265, 116, 28);
-        contentPane.add(btnCrear);
-
-        JButton btnActualizar = new JButton("Actualizar");
-        btnActualizar.setBounds(199, 265, 111, 28);
-        contentPane.add(btnActualizar);
-
-        JButton btnEliminar = new JButton("Eliminar");
-        btnEliminar.setBounds(328, 265, 116, 28);
-        contentPane.add(btnEliminar);
-
-        JButton btnCerrarSesion = new JButton("Cerrar Sesión");
-        btnCerrarSesion.setBounds(460, 265, 120, 28);
-        contentPane.add(btnCerrarSesion);
+        
+        JPanel panel = new JPanel();
+        panel.setBounds(0, 0, 784, 461);
+        contentPane.add(panel);
+        panel.setLayout(null);
+        
+                // ── Botones ──────────────────────────────────────────────
+                JButton btnCrear = new JButton("Nuevo");
+                btnCrear.setBackground(new Color(0, 134, 190));
+                btnCrear.setForeground(Color.WHITE);
+                btnCrear.setFont(new Font("Rockwell", Font.PLAIN, 16));
+                btnCrear.setBounds(65, 374, 133, 35);
+                panel.add(btnCrear);
+                
+                        JButton btnActualizar = new JButton("Actualizar");
+                        btnActualizar.setFont(new Font("Rockwell", Font.PLAIN, 16));
+                        btnActualizar.setForeground(Color.WHITE);
+                        btnActualizar.setBackground(new Color(0, 134, 190));
+                        btnActualizar.setBounds(226, 374, 138, 35);
+                        panel.add(btnActualizar);
+                        
+                                JButton btnEliminar = new JButton("Eliminar");
+                                btnEliminar.setBackground(new Color(0, 134, 190));
+                                btnEliminar.setForeground(Color.WHITE);
+                                btnEliminar.setFont(new Font("Rockwell", Font.PLAIN, 16));
+                                btnEliminar.setBounds(396, 374, 138, 35);
+                                panel.add(btnEliminar);
+                                
+                                        JButton btnCerrarSesion = new JButton("Cerrar Sesión");
+                                        btnCerrarSesion.setForeground(Color.WHITE);
+                                        btnCerrarSesion.setFont(new Font("Rockwell", Font.PLAIN, 16));
+                                        btnCerrarSesion.setBackground(new Color(0, 134, 190));
+                                        btnCerrarSesion.setBounds(564, 374, 138, 35);
+                                        panel.add(btnCerrarSesion);
+                                        
+                                                // ── Título ───────────────────────────────────────────────
+                                                JLabel lblTitulo = new JLabel("Usuarios Registrados");
+                                                lblTitulo.setBounds(99, 11, 400, 35);
+                                                panel.add(lblTitulo);
+                                                lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 26));
+                                                
+                                                JLabel lblNewLabel = new JLabel("");
+                                                lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Stanley\\Desktop\\Tarea4Kelyn\\Tarea4Kelyn\\bin\\images\\Group-1000011122 (1) (1).png"));
+                                                lblNewLabel.setBounds(42, 7, 44, 39);
+                                                panel.add(lblNewLabel);
+                                        
+                                                // ── Acción: Cerrar sesión ────────────────────────────────
+                                                // Cierra el dashboard y vuelve a mostrar el login
+                                                btnCerrarSesion.addActionListener(e -> {
+                                                    Login login = new Login();
+                                                    login.setLocationRelativeTo(this);
+                                                    login.setVisible(true);
+                                                    this.dispose(); // cierra solo el dashboard, no toda la app
+                                                });
+                                
+                                        // ── Acción: Eliminar ─────────────────────────────────────
+                                        btnEliminar.addActionListener(e -> {
+                                            int row = tablaUsuarios.getSelectedRow();
+                                            if (row == -1) {
+                                                JOptionPane.showMessageDialog(this,
+                                                    "Seleccione un usuario de la tabla para eliminar",
+                                                    "Sin selección", JOptionPane.WARNING_MESSAGE);
+                                                return;
+                                            }
+                                
+                                            DefaultTableModel model = (DefaultTableModel) tablaUsuarios.getModel();
+                                            int id = Integer.parseInt(String.valueOf(model.getValueAt(row, 5)));
+                                
+                                            // Confirmación antes de eliminar — operación irreversible
+                                            int confirm = JOptionPane.showConfirmDialog(this,
+                                                "¿Está seguro que desea eliminar este usuario?",
+                                                "Confirmar eliminación", JOptionPane.YES_NO_OPTION,
+                                                JOptionPane.WARNING_MESSAGE);
+                                
+                                            if (confirm == JOptionPane.YES_OPTION) {
+                                                boolean ok = controller.eliminarUsuario(id);
+                                                if (ok) {
+                                                    JOptionPane.showMessageDialog(this, "Usuario eliminado correctamente");
+                                                    refreshTable(); // refresca inmediatamente
+                                                } else {
+                                                    JOptionPane.showMessageDialog(this, "Error al eliminar", "Error",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                                }
+                                            }
+                                        });
+                        
+                                // ── Acción: Actualizar ───────────────────────────────────
+                                btnActualizar.addActionListener(e -> {
+                                    int row = tablaUsuarios.getSelectedRow();
+                                    if (row == -1) {
+                                        JOptionPane.showMessageDialog(this,
+                                            "Seleccione un usuario de la tabla para actualizar",
+                                            "Sin selección", JOptionPane.WARNING_MESSAGE);
+                                        return;
+                                    }
+                        
+                                    // Obtiene el ID de la columna oculta (índice 5)
+                                    DefaultTableModel model = (DefaultTableModel) tablaUsuarios.getModel();
+                                    int id = Integer.parseInt(String.valueOf(model.getValueAt(row, 5)));
+                        
+                                    // Busca el objeto Usuario completo para pre-poblar los diálogos
+                                    Usuario found = controller.listarUsuarios()
+                                            .stream()
+                                            .filter(u -> u.getId() == id)
+                                            .findFirst()
+                                            .orElse(null);
+                        
+                                    if (found == null) {
+                                        JOptionPane.showMessageDialog(this, "Usuario no encontrado");
+                                        return;
+                                    }
+                        
+                                    // Pide los nuevos valores pre-poblando con los actuales
+                                    String nuevoNombre    = JOptionPane.showInputDialog(this, "Nuevo nombre:",    found.getNombre());
+                                    String nuevoApellido  = JOptionPane.showInputDialog(this, "Nuevo apellido:",  found.getApellido());
+                                    String nuevoTelefono  = JOptionPane.showInputDialog(this, "Nuevo teléfono:",  found.getTelefono());
+                                    String nuevoCorreo    = JOptionPane.showInputDialog(this, "Nuevo correo:",    found.getCorreo());
+                        
+                                    // Si el usuario canceló algún diálogo, los valores serán null
+                                    if (nuevoNombre == null || nuevoNombre.isBlank()) {
+                                        JOptionPane.showMessageDialog(this, "El nombre es obligatorio");
+                                        return;
+                                    }
+                        
+                                    // Construye el Usuario actualizado conservando id, username y password
+                                    Usuario updated = Usuario.builder()
+                                            .id(found.getId())
+                                            .username(found.getUsername())
+                                            .nombre(nuevoNombre)
+                                            .apellido(nuevoApellido  != null ? nuevoApellido  : found.getApellido())
+                                            .telefono(nuevoTelefono  != null ? nuevoTelefono  : found.getTelefono())
+                                            .correo(nuevoCorreo      != null ? nuevoCorreo    : found.getCorreo())
+                                            .passwordHash(found.getPasswordHash())
+                                            .build();
+                        
+                                    boolean ok = controller.actualizarUsuario(updated);
+                                    if (ok) {
+                                        JOptionPane.showMessageDialog(this, "Usuario actualizado correctamente");
+                                        refreshTable(); // refresca inmediatamente
+                                    } else {
+                                        JOptionPane.showMessageDialog(this, "Error al actualizar", "Error",
+                                            JOptionPane.ERROR_MESSAGE);
+                                    }
+                                });
 
         // ── Acción: Nuevo ────────────────────────────────────────
         // Abre el formulario de registro pasando this como padre
@@ -112,105 +239,6 @@ public class Dashboard extends JFrame {
             Register r = new Register(Dashboard.this);
             r.setLocationRelativeTo(Dashboard.this);
             r.setVisible(true);
-        });
-
-        // ── Acción: Actualizar ───────────────────────────────────
-        btnActualizar.addActionListener(e -> {
-            int row = tablaUsuarios.getSelectedRow();
-            if (row == -1) {
-                JOptionPane.showMessageDialog(this,
-                    "Seleccione un usuario de la tabla para actualizar",
-                    "Sin selección", JOptionPane.WARNING_MESSAGE);
-                return;
-            }
-
-            // Obtiene el ID de la columna oculta (índice 5)
-            DefaultTableModel model = (DefaultTableModel) tablaUsuarios.getModel();
-            int id = Integer.parseInt(String.valueOf(model.getValueAt(row, 5)));
-
-            // Busca el objeto Usuario completo para pre-poblar los diálogos
-            Usuario found = controller.listarUsuarios()
-                    .stream()
-                    .filter(u -> u.getId() == id)
-                    .findFirst()
-                    .orElse(null);
-
-            if (found == null) {
-                JOptionPane.showMessageDialog(this, "Usuario no encontrado");
-                return;
-            }
-
-            // Pide los nuevos valores pre-poblando con los actuales
-            String nuevoNombre    = JOptionPane.showInputDialog(this, "Nuevo nombre:",    found.getNombre());
-            String nuevoApellido  = JOptionPane.showInputDialog(this, "Nuevo apellido:",  found.getApellido());
-            String nuevoTelefono  = JOptionPane.showInputDialog(this, "Nuevo teléfono:",  found.getTelefono());
-            String nuevoCorreo    = JOptionPane.showInputDialog(this, "Nuevo correo:",    found.getCorreo());
-
-            // Si el usuario canceló algún diálogo, los valores serán null
-            if (nuevoNombre == null || nuevoNombre.isBlank()) {
-                JOptionPane.showMessageDialog(this, "El nombre es obligatorio");
-                return;
-            }
-
-            // Construye el Usuario actualizado conservando id, username y password
-            Usuario updated = Usuario.builder()
-                    .id(found.getId())
-                    .username(found.getUsername())
-                    .nombre(nuevoNombre)
-                    .apellido(nuevoApellido  != null ? nuevoApellido  : found.getApellido())
-                    .telefono(nuevoTelefono  != null ? nuevoTelefono  : found.getTelefono())
-                    .correo(nuevoCorreo      != null ? nuevoCorreo    : found.getCorreo())
-                    .passwordHash(found.getPasswordHash())
-                    .build();
-
-            boolean ok = controller.actualizarUsuario(updated);
-            if (ok) {
-                JOptionPane.showMessageDialog(this, "Usuario actualizado correctamente");
-                refreshTable(); // refresca inmediatamente
-            } else {
-                JOptionPane.showMessageDialog(this, "Error al actualizar", "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            }
-        });
-
-        // ── Acción: Eliminar ─────────────────────────────────────
-        btnEliminar.addActionListener(e -> {
-            int row = tablaUsuarios.getSelectedRow();
-            if (row == -1) {
-                JOptionPane.showMessageDialog(this,
-                    "Seleccione un usuario de la tabla para eliminar",
-                    "Sin selección", JOptionPane.WARNING_MESSAGE);
-                return;
-            }
-
-            DefaultTableModel model = (DefaultTableModel) tablaUsuarios.getModel();
-            int id = Integer.parseInt(String.valueOf(model.getValueAt(row, 5)));
-
-            // Confirmación antes de eliminar — operación irreversible
-            int confirm = JOptionPane.showConfirmDialog(this,
-                "¿Está seguro que desea eliminar este usuario?",
-                "Confirmar eliminación", JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE);
-
-            if (confirm == JOptionPane.YES_OPTION) {
-                boolean ok = controller.eliminarUsuario(id);
-                if (ok) {
-                    JOptionPane.showMessageDialog(this, "Usuario eliminado correctamente");
-                    refreshTable(); // refresca inmediatamente
-                } else {
-                    JOptionPane.showMessageDialog(this, "Error al eliminar", "Error",
-                        JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        });
-
-        // ── Acción: Cerrar sesión ────────────────────────────────
-        // Cierra el dashboard y vuelve a mostrar el login
-        btnCerrarSesion.addActionListener(e -> {
-            Login login = new Login();
-            login.setLocationRelativeTo(this);
-            login.setVisible(true);
-            this.dispose(); // cierra solo el dashboard, no toda la app
         });
     }
 

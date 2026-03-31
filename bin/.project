@@ -14,4 +14,26 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/images/Captura de pantalla 2026-03-30 222555.png</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Pictures/Screenshots/Captura%20de%20pantalla%202026-03-30%20222555.png</locationURI>
+		</link>
+		<link>
+			<name>src/images/Captura de pantalla 2026-03-30 223749.png</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Pictures/Screenshots/Captura%20de%20pantalla%202026-03-30%20223749.png</locationURI>
+		</link>
+		<link>
+			<name>src/images/Group-1000011122 (1) (1).png</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Downloads/Group-1000011122%20(1)%20(1).png</locationURI>
+		</link>
+		<link>
+			<name>src/images/Owner_Blue_220x220 (1).png</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Downloads/Owner_Blue_220x220%20(1).png</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -13,14 +13,6 @@ public class UsuarioRegistrado extends Usuario {
     /**
      * Constructor que llama al constructor protegido de Usuario (super)
      * y agrega la fecha de registro propia de esta subclase.
-     *
-     * @param username      nombre de usuario
-     * @param nombre        nombre real
-     * @param apellido      apellido
-     * @param telefono      número de teléfono
-     * @param correo        correo electrónico
-     * @param passwordHash  contraseña hasheada
-     * @param fechaRegistro fecha en que se registró
      */
     public UsuarioRegistrado(String username, String nombre, String apellido,
                              String telefono, String correo,
